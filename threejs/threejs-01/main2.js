@@ -11,8 +11,13 @@ const init = () => {
   let spotLight = getSpotLight(1);
   spotLight.position.y = 5;
   spotLight.intensity = 2;
+  spotLight.penumbra = 0.5;
+
   gui.add(spotLight, 'intensity', 0, 10);
+  gui.add(spotLight.position, 'x', 0, 20);
   gui.add(spotLight.position, 'y', 0, 10);
+  gui.add(spotLight.position, 'z', 0, 20);
+  // gui.add(spotLight, 'penumbra', 0, 1 );
 
   //Sphere
   let sphere = getSphere(0.05);
@@ -128,17 +133,25 @@ let getSphere = (size) => {
 let getPointLight = (intensity) => {
   let light = new THREE.PointLight(0xffffff, intensity);
   light.castShadow = true;
- 
+  
+  light.shadow.bias = 0.001;
+  light.shadowMapWidth = 2048;
+  light.shadowMapHeight = 2048;
+
   return light;
 }
 
-  //Spot light
-  let getSpotLight = (intensity) => {
-    let light = new THREE.SpotLight(0xffffff, intensity);
-    light.castShadow = true;
-   
-    return light;
-  }
+//Spot light
+let getSpotLight = (intensity) => {
+  let light = new THREE.SpotLight(0xffffff, intensity);
+  light.castShadow = true;
+
+  light.shadow.bias = 0.001;
+  light.shadow.mapSize.width = 2048;
+  light.shadow.mapSize.height = 2048;
+
+  return light;
+}
   
 let update = (renderer, scene, camera, controls) => {
   renderer.render(
