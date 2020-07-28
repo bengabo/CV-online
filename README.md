@@ -1,4 +1,4 @@
-# http://www.bengabo.fr/
+# https://www.bengabo.fr/
 
 My cv online is ready. Feel free to go and visit it!
 
