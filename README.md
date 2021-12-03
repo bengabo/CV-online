@@ -1,5 +1,5 @@
-# https://www.bengabo.fr/
+# https://www.bengabo.com
 
-My cv online is ready. Feel free to go and visit it!
+My online porfolio is ready. Feel free to go and visit it!
 
 Have a nice day!
